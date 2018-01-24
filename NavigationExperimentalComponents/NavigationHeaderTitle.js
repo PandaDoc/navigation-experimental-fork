@@ -42,6 +42,8 @@ const {
   Text,
 } = ReactNative;
 
+import PropTypes from 'prop-types'
+
 type Props = {
   children?: React.Element<any>,
   style?: any,
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
 });
 
 NavigationHeaderTitle.propTypes = {
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   style: View.propTypes.style,
   textStyle: Text.propTypes.style
 };
