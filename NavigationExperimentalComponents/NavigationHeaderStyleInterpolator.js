@@ -59,8 +59,11 @@ function forLeft(props: NavigationSceneRendererProps): Object {
 }
 
 function forCenter(props: NavigationSceneRendererProps): Object {
-  const { position, scene } = props;
+  console.log(props);
+  const { position, scene, scenes } = props;
   const { index } = scene;
+  const route = scenes[scenes.length-1].route;
+  const moveTitle = route && route.translateHeader ? 200 : 0;
   return {
     opacity: position.interpolate({
       inputRange: [index - 1, index, index + 1],
@@ -71,8 +74,8 @@ function forCenter(props: NavigationSceneRendererProps): Object {
         translateX: position.interpolate({
           inputRange: [index - 1, index + 1],
           outputRange: I18nManager.isRTL
-            ? ([-200, 200]: Array<number>)
-            : ([200, -200]: Array<number>),
+            ? ([-moveTitle, moveTitle]: Array<number>)
+            : ([moveTitle, -moveTitle]: Array<number>),
         }),
       },
     ],
