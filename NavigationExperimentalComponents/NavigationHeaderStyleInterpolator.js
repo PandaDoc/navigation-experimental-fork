@@ -59,7 +59,6 @@ function forLeft(props: NavigationSceneRendererProps): Object {
 }
 
 function forCenter(props: NavigationSceneRendererProps): Object {
-  console.log(props);
   const { position, scene, scenes } = props;
   const { index } = scene;
   const route = scenes[scenes.length-1].route;
