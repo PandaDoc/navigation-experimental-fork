@@ -123,9 +123,9 @@ class NavigationCardStackPanResponder extends NavigationAbstractPanResponder {
       * For horizontal scroll views, a distance of 30 from the left of the screen is the
       * standard maximum position to start touch responsiveness.
       */
-        props.gestureResponseDistance || 30;
+        props.gestureResponseDistance || 40;
 
-      if ((positionMax != null && currentDragPosition > positionMax) || (isVertical && currentDragDistance < -10)) {
+      if ((positionMax != null && currentDragPosition > positionMax) || (isVertical && currentDragDistance < -10 && currentDragPosition < 120)) {
           return false;
       }
 
