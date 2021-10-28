@@ -41,11 +41,17 @@ type Props = {
   style?: any,
 };
 
-const NavigationHeaderBackButton = (props: Props) => (
-  <TouchableOpacity style={[styles.buttonContainer, props.style]} onPress={props.onPress}>
-    <Image style={[styles.button, props.imageStyle]} source={require('./assets/back-icon.png')} />
-  </TouchableOpacity>
-);
+const NavigationHeaderBackButton = (props: Props) => {
+  const backIcon = Platform.select({
+    ios: require('./assets/back-icon-ios.png'),
+    default: require('./assets/back-icon-android.png'),
+  });
+  return (
+      <TouchableOpacity style={[styles.buttonContainer, props.style]} onPress={props.onPress}>
+        <Image style={[styles.button, props.imageStyle]} source={backIcon} />
+      </TouchableOpacity>
+  );
+}
 
 NavigationHeaderBackButton.propTypes = {
   onPress: PropTypes.func.isRequired
