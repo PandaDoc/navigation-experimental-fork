@@ -40,7 +40,8 @@ const NavigationPropTypes = require('../NavigationPropTypes');
 const NavigationTransitioner = require('../NavigationTransitioner');
 import React, { Component } from 'react';
 
-const { Animated, StyleSheet, View, ViewPropTypes } = require('react-native');
+const { Animated, StyleSheet, View } = require('react-native');
+const { ViewPropTypes } = require('deprecated-react-native-prop-types');
 
 import PropTypes from 'prop-types'
 const { Directions } = NavigationCardStackPanResponder;

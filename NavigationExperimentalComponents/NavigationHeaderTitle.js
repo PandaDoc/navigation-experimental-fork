@@ -40,8 +40,10 @@ const {
   StyleSheet,
   View,
   Text,
-  ViewPropTypes,
 } = ReactNative;
+
+const { TextPropTypes } = require('deprecated-react-native-prop-types');
+const { ViewPropTypes} = require('deprecated-react-native-prop-types');
 
 import PropTypes from 'prop-types'
 
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
 NavigationHeaderTitle.propTypes = {
   children: PropTypes.node.isRequired,
   style: ViewPropTypes.style,
-  textStyle: Text.propTypes.style
+  textStyle: TextPropTypes.style
 };
 
 module.exports = NavigationHeaderTitle;

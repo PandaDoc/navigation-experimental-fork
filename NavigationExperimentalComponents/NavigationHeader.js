@@ -38,7 +38,8 @@ const NavigationHeaderTitle = require('./NavigationHeaderTitle');
 const NavigationPropTypes = require('../NavigationPropTypes');
 import React from 'react';
 
-import { Animated, Platform, StyleSheet, ViewPropTypes } from 'react-native';
+import { Animated, Platform, StyleSheet } from 'react-native';
+const { ViewPropTypes } = require('deprecated-react-native-prop-types');
 
 import type {
   NavigationSceneRendererProps,
