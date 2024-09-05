@@ -36,11 +36,10 @@ const NavigationHeaderBackButton = require('./NavigationHeaderBackButton');
 const NavigationHeaderStyleInterpolator = require('./NavigationHeaderStyleInterpolator');
 const NavigationHeaderTitle = require('./NavigationHeaderTitle');
 const NavigationPropTypes = require('../NavigationPropTypes');
-import React, { Component } from 'react';
+import React from 'react';
 
-// const TVEventHandler = require('TVEventHandler');
-
-import { Animated, Platform, StyleSheet, View, TVEventHandler, ViewPropTypes } from 'react-native';
+import { Animated, Platform, StyleSheet } from 'react-native';
+const { ViewPropTypes } = require('deprecated-react-native-prop-types');
 
 import type {
   NavigationSceneRendererProps,
@@ -109,24 +108,6 @@ class NavigationHeader extends React.PureComponent<DefaultProps, Props, any> {
     statusBarHeight: PropTypes.number,
     viewProps: PropTypes.shape(ViewPropTypes),
   };
-
-  _tvEventHandler: TVEventHandler;
-
-  componentDidMount(): void {
-    this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, function(cmp, evt) {
-      if (evt && evt.eventType === 'menu') {
-        cmp.props.onNavigateBack && cmp.props.onNavigateBack();
-      }
-    });
-  }
-
-  componentWillUnmount(): void {
-    if (this._tvEventHandler) {
-      this._tvEventHandler.disable();
-      delete this._tvEventHandler;
-    }
-  }
 
   render(): React.Element<any> {
     const { scenes, style, viewProps } = this.props;
